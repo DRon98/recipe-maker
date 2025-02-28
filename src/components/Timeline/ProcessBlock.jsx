@@ -77,7 +77,7 @@ const ProcessBlock = ({
     e.preventDefault(); // Prevent text selection or other default behaviors
     e.stopPropagation(); // Stop event from bubbling up
 
-    setSelectedPreparation(preparation);
+    //setSelectedPreparation(preparation);
     const rect = blockRef.current.getBoundingClientRect();
     const isRightEdge = Math.abs(e.clientX - rect.right) < 10; // Detect resize handle
 
@@ -129,7 +129,7 @@ const ProcessBlock = ({
       const newDuration = calculateDuration(finalWidth);
 
       if (!wouldCollide(preparation.startTime, newDuration)) {
-        updatePreparation(preparation.id, { duration: newDuration });
+        //updatePreparation(preparation.id, { duration: newDuration });
       } else {
         blockRef.current.style.width = `${calculateWidth(preparation.duration)}px`; // Revert on collision
       }
@@ -139,7 +139,7 @@ const ProcessBlock = ({
       const newStartTime = calculateTime(finalLeft);
 
       if (!wouldCollide(newStartTime, preparation.duration)) {
-        updatePreparation(preparation.id, { startTime: newStartTime });
+     //   updatePreparation(preparation.id, { startTime: newStartTime });
       } else {
         blockRef.current.style.left = `${calculatePosition(preparation.startTime)}px`; // Revert on collision
       }
